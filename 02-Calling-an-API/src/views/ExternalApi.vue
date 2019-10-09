@@ -1,10 +1,9 @@
 <template>
   <div>
     <div class="mb-5">
-      <h1>External API</h1>
+      <h1>ようこそ秘密のページへ</h1>
       <p>
-        Call an external API by clicking the button below. This will call the external API using an access token, and the API will validate it using
-        the API's audience value.
+        ここは秘密のページだよ
       </p>
 
       <button class="btn btn-primary mt-5" @click="callApi">Call API</button>
@@ -33,9 +32,11 @@ export default {
   methods: {
     async callApi() {
       const accessToken = await this.$auth.getTokenSilently();
-
+      // eslint-disable-next-line
+      console.log(accessToken);
       try {
-        const { data } = await this.$http.get("/api/external", {
+        const HerokuDomain = 'himitu-api-server';
+        const { data } = await this.$http.get(`https://${HerokuDomain}.herokuapp.com/himitu/${this.$auth.user.sub}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }

@@ -21,7 +21,7 @@
               <router-link to="/" class="nav-link">Home</router-link>
             </li>
             <li class="nav-item" v-if="$auth.isAuthenticated">
-              <router-link to="/external-api" class="nav-link">External API</router-link>
+              <router-link to="/external-api" class="nav-link">秘密</router-link>
             </li>
           </ul>
           <ul class="navbar-nav d-none d-md-block">

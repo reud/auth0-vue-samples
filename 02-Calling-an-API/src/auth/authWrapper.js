@@ -10,7 +10,7 @@ export const getInstance = () => instance;
 
 export const useAuth0 = ({
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
-  redirect_uri = window.location.origin,
+  redirect_uri = 'https://reud.github.io/auth0-vue-samples/',
   ...options
 }) => {
   if (instance) return instance;
@@ -74,7 +74,8 @@ export const useAuth0 = ({
         domain: options.domain,
         client_id: options.clientId,
         audience: options.audience,
-        redirect_uri
+        scope: "read:current_user",
+        redirect_uri: 'https://reud.github.io/auth0-vue-samples/'
       });
 
       try {
